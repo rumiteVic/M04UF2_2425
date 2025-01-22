@@ -40,13 +40,29 @@ function crea ()
 
 function actualiza ()
 {
-rect.x += rect_dir;
-
-if (rect.x <= 0 || rect.x >= canvas_w ){
-	rect_dir = -rect_dir;
-}
-
-
+window.addEventListener("keydown", (event) => {
+  
+  let key = event.key
+    
+  if (key == "ArrowRight") 
+  {
+   rect.x += 0.5;
+  } 
+  
+  if (key == "ArrowLeft") 
+  {
+   rect.x -= 0.5;
+  }
+  
+  if (key == "ArrowUp") 
+  {
+   rect.y += 0.5;
+  }
+  if (key == "ArrowDown") 
+  {
+   rect.y -= 0.5;
+  }
+})
 }
 
 		</script>
