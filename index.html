@@ -62,6 +62,17 @@ function crea ()
 	huevera_m.setTint(Phaser.Display.Color.GetColor(133, 61, 4));
 	huevera_d.setTint(Phaser.Display.Color.GetColor(207, 215, 16));
 
+	huevo_b.onpointerdown = (event) => {
+	console.log('Huevo blanco');
+	};
+
+	huevo_m.onpointerdown = (event) => {
+	console.log('Huevo Marron');
+	};
+
+	huevo_d.onpointerdown = (event) => {
+	console.log('Huevo Dorado');
+	};
 }
 
 function actualiza ()
