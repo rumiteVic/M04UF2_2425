@@ -22,61 +22,40 @@ let huevom;
 let huevom_dir = 1;
 
 let huevera_b, huevera_m, huevera_d;
-let huevo;
+let huevo_b, huevo_m, huevo_d;
 
 
 function precarga ()
 {
 	huevera_b = this.load.image('huevera', 'huevera.png');
-	huevo = this.load.image('huevo', 'huevo.png');
+	huevo_b = this.load.image('huevo', 'huevo.png');
+	huevera_m = this.load.image('huevera', 'huevera.png');
+	huevo_m = this.load.image('huevo', 'huevo.png');
+	huevo_d = this.load.image('huevo', 'huevo.png');
+	huevera_d = this.load.image('huevera', 'huevera.png');
 }
 function crea ()
 {
 	//rect = this.add.rectangle(400, 225, 32, 32, 0xffffff);
-	huevera_b = this.add.image(400, 160, 'huevera');
+	huevera_b = this.add.image(80, 70, 'huevera');
 	huevera_b.setScale(.5);
-	huevo = this.add.image(200, 80, 'huevo');
-	huevo.setScale(.8);
-	//huevo.setTint(Phaser.Display.Colow.Getcolor(192, 128, 16));
+
+	huevera_m = this.add.image(80, 150, 'huevera');
+	huevera_m.setScale(.5);
+	
+	huevera_d = this.add.image(80, 250, 'huevera');
+	huevera_d.setScale(.5);
+
+	huevo_b = this.add.image(200, 80, 'huevo');
+	huevo_b.setScale(.8);
+	huevo_b.setTint(Phaser.Display.Colow.Getcolor(192, 0, 0));
 }
 
 function actualiza ()
 {
-window.addEventListener("keydown", (event) => {
-  
-  let key = event.key
-    
-  if (key == "ArrowRight") 
-  {
-   huevom.x += huevom_dir;
-  } 
-  
-  if (key == "ArrowLeft") 
-  {
-   huevom.x -= huevom_dir;
-  }
-  
-  if (key == "ArrowUp") 
-  {
-   huevom.y += huevom_dir;
-  }
-  if (key == "ArrowDown") 
-  {
-   huevom.y -= huevom_dir;
-  }
-})
-
-
-function actualiza_rect ()
-{
-/*
-rect.x += rect_dir;
-if (rect.x <= 0 || rect.x >= canvas_w ){
-	rect_dir = -rect_dir;
-*/
 
 }
-}
+
 		</script>
 	</head>
 	<body>
