@@ -27,28 +27,41 @@ let huevo_b, huevo_m, huevo_d;
 
 function precarga ()
 {
-	huevera_b = this.load.image('huevera', 'huevera.png');
-	huevo_b = this.load.image('huevo', 'huevo.png');
-	huevera_m = this.load.image('huevera', 'huevera.png');
-	huevo_m = this.load.image('huevo', 'huevo.png');
-	huevo_d = this.load.image('huevo', 'huevo.png');
-	huevera_d = this.load.image('huevera', 'huevera.png');
+	huevera_b = this.load.image('huevera_b', 'huevera.png');
+	huevo_b = this.load.image('huevo_b', 'huevo.png');
+	huevera_m = this.load.image('huevera_m', 'huevera.png');
+	huevo_m = this.load.image('huevo_m', 'huevo.png');
+	huevo_d = this.load.image('huevo_d', 'huevo.png');
+	huevera_d = this.load.image('huevera_d', 'huevera.png');
 }
 function crea ()
 {
 	//rect = this.add.rectangle(400, 225, 32, 32, 0xffffff);
-	huevera_b = this.add.image(80, 70, 'huevera');
+	huevera_b = this.add.image(80, 70, 'huevera_b');
 	huevera_b.setScale(.5);
 
-	huevera_m = this.add.image(80, 150, 'huevera');
+	huevera_m = this.add.image(80, 150, 'huevera_m');
 	huevera_m.setScale(.5);
 	
-	huevera_d = this.add.image(80, 250, 'huevera');
+	huevera_d = this.add.image(80, 250, 'huevera_d');
 	huevera_d.setScale(.5);
 
-	huevo_b = this.add.image(200, 80, 'huevo');
+	huevo_b = this.add.image(400, 175, 'huevo_d');
+	huevo_m = this.add.image(500, 175, 'huevo_m');
+	huevo_d = this.add.image(600, 175, 'huevo_d');
+	
 	huevo_b.setScale(.8);
-	huevo_b.setTint(Phaser.Display.Colow.Getcolor(192, 0, 0));
+	huevo_m.setScale(.8);
+	huevo_d.setScale(.8);
+
+	huevo_b.setTint(Phaser.Display.Color.GetColor(219, 231, 100));
+	huevo_m.setTint(Phaser.Display.Color.GetColor(133, 61, 4));
+	huevo_d.setTint(Phaser.Display.Color.GetColor(207, 215, 16));
+
+	huevera_b.setTint(Phaser.Display.Color.GetColor(219, 231, 100));
+	huevera_m.setTint(Phaser.Display.Color.GetColor(133, 61, 4));
+	huevera_d.setTint(Phaser.Display.Color.GetColor(207, 215, 16));
+
 }
 
 function actualiza ()
