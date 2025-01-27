@@ -27,12 +27,12 @@ let huevo_b, huevo_m, huevo_d;
 
 function precarga ()
 {
-	huevera_b = this.load.image('huevera_b', 'huevera.png');
-	huevo_b = this.load.image('huevo_b', 'huevo.png');
-	huevera_m = this.load.image('huevera_m', 'huevera.png');
-	huevo_m = this.load.image('huevo_m', 'huevo.png');
-	huevo_d = this.load.image('huevo_d', 'huevo.png');
-	huevera_d = this.load.image('huevera_d', 'huevera.png');
+	huevera_b = this.load.image('huevera_b', 'huevera_b.png');
+	huevo_b = this.load.image('huevo_b', 'huevo_b.png');
+	huevera_m = this.load.image('huevera_m', 'huevera_m.png');
+	huevo_m = this.load.image('huevo_m', 'huevo_m.png');
+	huevo_d = this.load.image('huevo_d', 'huevo_d.png');
+	huevera_d = this.load.image('huevera_d', 'huevera_d.png');
 }
 function crea ()
 {
@@ -53,14 +53,6 @@ function crea ()
 	huevo_b.setScale(.8);
 	huevo_m.setScale(.8);
 	huevo_d.setScale(.8);
-
-	huevo_b.setTint(Phaser.Display.Color.GetColor(219, 231, 100));
-	huevo_m.setTint(Phaser.Display.Color.GetColor(133, 61, 4));
-	huevo_d.setTint(Phaser.Display.Color.GetColor(207, 215, 16));
-
-	huevera_b.setTint(Phaser.Display.Color.GetColor(219, 231, 100));
-	huevera_m.setTint(Phaser.Display.Color.GetColor(133, 61, 4));
-	huevera_d.setTint(Phaser.Display.Color.GetColor(207, 215, 16));
 
 	huevo_b.setInteractive();
 	huevo_m.setInteractive();
