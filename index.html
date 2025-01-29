@@ -39,17 +39,13 @@ function precarga ()
 	straw = this.load.image('straw', 'straw_bg.png');
 }
 
-function getRandomArbitrary(200, 400) {
+let x_b, x_m, x_d;
 
-return Math.random() * (400 - 200) + 200;
-
+function random(){
+x_b = Math.floor((Math.random() * 400) + 200);
+x_m = Math.floor((Math.random() * 400) + 200);
+x_d = Math.floor((Math.random() * 400) + 200);
 }
-
-
-
-let x_b = Math.floor((Math.random() * 400) + 200);
-let x_m = Math.floor((Math.random() * 400) + 200);
-let x_d = Math.floor((Math.random() * 400) + 200);
 
 let huevo_dir = 1.5;
 function crea ()
@@ -104,22 +100,18 @@ huevo_d.y += huevo_dir;
 
 if(huevo_b.y >= 400){
 huevo_b.y = 50;
-x_b = Math.floor((Math.random() * 400) + 200);
+huevo_b.x = x_b;
+return random();
 }
 if(huevo_m.y >= 400){
-x_m = Math.floor((Math.random() * 400) + 200);
+huevo_m.x = x_m;
 huevo_m.y = 50;
 }
 
 if(huevo_d.y >= 400){
-x_d = Math.floor((Math.random() * 400) + 200);
+huevo_d.x = x_d;
 huevo_d.y = 50;
 }
-}
-
-function actualiza_rect ()
-{
-	rect.x += rect_dir;
 }
 		</script>
 	</head>
