@@ -43,10 +43,7 @@ let x_b = Math.floor((Math.random() * 400) + 200);
 let x_m = Math.floor((Math.random() * 400) + 200);
 let x_d = Math.floor((Math.random() * 400) + 200);
 
-let dir_b = Math.floor((Math.random() * 0.8) + 0.3);
-let dir_m = Math.floor((Math.random() * 0.8) + 0.3);
-let dir_d = Math.floor((Math.random() * 0.8) + 0.3);
-
+let huevo_dir = 0.5;
 function crea ()
 {
 
@@ -89,26 +86,13 @@ function crea ()
 	huevo_d.on('pointerdown', (pointer) => {
 	console.log('Huevo Dorado');
 	});
-
-huevo_b = this.input.on('drag', function (pointer, huevo_b, x, y) { huevo_b.x = x;
-huevo_b.y = y;
-huevo_b.setScale(1.4);
-
-if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_b.getBounds(), huevo_b.getBounds())){
-console.log("Huevo dentro de huevera!!!");
-}
-});
-
-huevo_b = this.input.on('dragend', function (pointer, huevo_b, x, y)     {
-huevo_b.setScale(1.1);
-});
 }
 
 function actualiza ()
 {
-huevo_b.y -= dir_b;
-huevo_m.y -= dir_m;
-huevo_d.y -= dir_d;
+huevo_b.y += huevo_dir;
+huevo_m.y += huevo_dir;
+huevo_d.y += huevo_dir;
 
 if(huevo_b.y >= 400){
 huevo_b.y = 50;
