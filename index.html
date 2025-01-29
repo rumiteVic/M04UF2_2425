@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>10.40.3.105
 <html>
 	<head>
 	<meta charset="UTF-8" />
@@ -23,6 +23,8 @@ let huevom_dir = 1;
 
 let huevera_b, huevera_m, huevera_d;
 let huevo_b, huevo_m, huevo_d;
+let background;
+let straw;
 
 
 function precarga ()
@@ -33,10 +35,21 @@ function precarga ()
 	huevo_m = this.load.image('huevo_m', 'huevo_m.png');
 	huevo_d = this.load.image('huevo_d', 'huevo_d.png');
 	huevera_d = this.load.image('huevera_d', 'huevera_d.png');
+	background = this.load.image('background', 'grass_bg.png');
+	straw = this.load.image('straw', 'straw_bg.png');
 }
+
 function crea ()
 {
 	//rect = this.add.rectangle(400, 225, 32, 32, 0xffffff);
+
+	background = this.add.image(80, 0, 'background');
+	background.setScale(2);
+
+	straw = this.add.image(90, 200, 'straw');
+	straw.setScale(0.5, 0.4);
+	straw.angle = 90;
+
 	huevera_b = this.add.image(80, 100, 'huevera_b');
 	huevera_b.setScale(.5);
 
@@ -46,7 +59,7 @@ function crea ()
 	huevera_d = this.add.image(80, 300, 'huevera_d');
 	huevera_d.setScale(.5);
 
-	huevo_b = this.add.image(400, 200, 'huevo_d');
+	huevo_b = this.add.image(400, 200, 'huevo_b');
 	huevo_m = this.add.image(500, 200, 'huevo_m');
 	huevo_d = this.add.image(600, 200, 'huevo_d');
 	
@@ -58,15 +71,15 @@ function crea ()
 	huevo_m.setInteractive();
 	huevo_d.setInteractive();
 
-	huevo_b.on('pointerdown', () => {
+	huevo_b.on('pointerdown', (pointer) => {
 	console.log('Huevo blanco');
 	});
 
-	huevo_m.on('pointerdown', () => {
+	huevo_m.on('pointerdown', (pointer) => {
 	console.log('Huevo Marron');
 	});
 
-	huevo_d.on('pointerdown', () => {
+	huevo_d.on('pointerdown', (pointer) => {
 	console.log('Huevo Dorado');
 	});
 }
