@@ -63,11 +63,11 @@ function crea ()
 	huevo_m = this.add.image(500, 200, 'huevo_m');
 	huevo_d = this.add.image(600, 200, 'huevo_d');
 	
-	huevo_b.setScale(.8);
-	huevo_m.setScale(.8);
-	huevo_d.setScale(.8);
+	huevo_b.setScale(1.1);
+	huevo_m.setScale(1.1);
+	huevo_d.setScale(1.1);
 
-	huevo_b.setInteractive();
+	huevo_b.setInteractive({draggable:true});
 	huevo_m.setInteractive();
 	huevo_d.setInteractive();
 
@@ -82,13 +82,29 @@ function crea ()
 	huevo_d.on('pointerdown', (pointer) => {
 	console.log('Huevo Dorado');
 	});
+
+huevo_b = this.input.on('drag', function (pointer, huevo_b, x, y) { huevo_b.x = x;
+huevo_b.y = y;
+huevo_b.setScale(1.4);
+
+if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_b.getBounds(), huevo_b.getBounds())){
+console.log("Huevo dentro de huevera!!!");
+}
+});
+
+huevo_b = this.input.on('dragend', function (pointer, huevo_b, x, y)     {
+huevo_b.setScale(1.1);
+});
 }
 
 function actualiza ()
 {
 
 }
-
+function actualiza_rect ()
+{
+	rect.x += rect_dir;
+}
 		</script>
 	</head>
 	<body>
