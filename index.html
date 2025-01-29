@@ -2,7 +2,7 @@
 <html>
 	<head>
 	<meta charset="UTF-8" />
-		<title>Hueveras de cartón 2</title>
+		<title>Hueveras de cartÃ³n 2</title>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.87.0/phaser.min.js"></script>
 	
 <script>
@@ -43,7 +43,7 @@ let x_b = Math.floor((Math.random() * 400) + 200);
 let x_m = Math.floor((Math.random() * 400) + 200);
 let x_d = Math.floor((Math.random() * 400) + 200);
 
-let huevo_dir = 0.5;
+let huevo_dir = 1.5;
 function crea ()
 {
 
@@ -96,12 +96,15 @@ huevo_d.y += huevo_dir;
 
 if(huevo_b.y >= 400){
 huevo_b.y = 50;
+x_b = Math.floor((Math.random() * 400) + 200);
 }
 if(huevo_m.y >= 400){
+x_m = Math.floor((Math.random() * 400) + 200);
 huevo_m.y = 50;
 }
 
 if(huevo_d.y >= 400){
+x_d = Math.floor((Math.random() * 400) + 200);
 huevo_d.y = 50;
 }
 }
