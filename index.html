@@ -28,14 +28,14 @@ let straw;
 
 function precarga ()
 {
-	huevera_b = this.load.image('huevera_b', 'huevera_b.png');
-	huevo_b = this.load.image('huevo_b', 'huevo_b.png');
-	huevera_m = this.load.image('huevera_m', 'huevera_m.png');
-	huevo_m = this.load.image('huevo_m', 'huevo_m.png');
-	huevo_d = this.load.image('huevo_d', 'huevo_d.png');
-	huevera_d = this.load.image('huevera_d', 'huevera_d.png');
-	background = this.load.image('background', 'grass_bg.png');
-	straw = this.load.image('straw', 'straw_bg.png');
+	this.load.image('huevera_b', 'huevera_b.png');
+	this.load.image('huevo_b', 'huevo_b.png');
+	this.load.image('huevera_m', 'huevera_m.png');
+	this.load.image('huevo_m', 'huevo_m.png');
+	this.load.image('huevo_d', 'huevo_d.png');
+	this.load.image('huevera_d', 'huevera_d.png');
+	this.load.image('background', 'grass_bg.png');
+	this.load.image('straw', 'straw_bg.png');
 }
 
 let x_huevo;
@@ -47,13 +47,13 @@ x_huevo = Math.floor((Math.random() * 400) + 200);
 eleccion = Math.floor((Math.random() * 3) + 1);
 
 	if(eleccion == 1){
-		huevin = huevo_b;
+		huevin = 'huevo_b';
 	}
 	if(eleccion == 2){
-		huevin = huevo_m;
+		huevin = 'huevo_m';
 	}
 	if(eleccion == 3){
-		huevin = huevo_d;
+		huevin = 'huevo_d';
 	}
 }
 
@@ -61,6 +61,7 @@ let huevo_dir = 1.5;
 
 function crea ()
 {
+	random('huevin');
 	background = this.add.image(80, 0, 'background');
 	background.setScale(2);
 
@@ -76,10 +77,6 @@ function crea ()
 	
 	huevera_d = this.add.image(80, 300, 'huevera_d');
 	huevera_d.setScale(.5);
-
-	huevo_b = this.add.image('huevo_b');
-	huevo_m = this.add.image('huevo_m');
-	huevo_d = this.add.image('huevo_d');
 	
 	huevo_b.setScale(1.1);
 	huevo_m.setScale(1.1);
@@ -101,7 +98,7 @@ function crea ()
 	console.log('Huevo Dorado');
 	});
 
-	huevin = this(x_huevo, 0);
+	huevin = this.add.image(x_huevo, 0, 'huevin');
 }
 
 function actualiza ()
@@ -111,7 +108,7 @@ huevin.y += huevo_dir;
 if(huevin.y >= 400){
 huevin.y = 50;
 huevin.x = x_huevo;
-return random();
+random('huevin');
 }
 }
 		</script>
