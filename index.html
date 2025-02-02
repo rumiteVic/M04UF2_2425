@@ -61,7 +61,7 @@ let huevo_dir = 1.5;
 
 function crea ()
 {
-	random('huevin');
+	random(huevin);
 	background = this.add.image(80, 0, 'background');
 	background.setScale(2);
 
@@ -78,27 +78,7 @@ function crea ()
 	huevera_d = this.add.image(80, 300, 'huevera_d');
 	huevera_d.setScale(.5);
 	
-	huevo_b.setScale(1.1);
-	huevo_m.setScale(1.1);
-	huevo_d.setScale(1.1);	
-
-	huevo_b.setInteractive({draggable:true});
-	huevo_m.setInteractive();
-	huevo_d.setInteractive();
-
-	huevo_b.on('pointerdown', (pointer) => {
-	console.log('Huevo blanco');
-	});
-
-	huevo_m.on('pointerdown', (pointer) => {
-	console.log('Huevo Marron');
-	});
-
-	huevo_d.on('pointerdown', (pointer) => {
-	console.log('Huevo Dorado');
-	});
-
-	huevin = this.add.image(x_huevo, 0, 'huevin');
+	huevin = this.add.image(x_huevo, 0, huevin);
 }
 
 function actualiza ()
@@ -108,7 +88,7 @@ huevin.y += huevo_dir;
 if(huevin.y >= 400){
 huevin.y = 50;
 huevin.x = x_huevo;
-random('huevin');
+random();
 }
 }
 		</script>
