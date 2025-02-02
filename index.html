@@ -24,7 +24,11 @@ let huevera_b, huevera_m, huevera_d;
 let huevo_b, huevo_m, huevo_d;
 let background;
 let straw;
-
+	
+let x_huevo;
+let eleccion;
+let huevin;
+let y_huevo = 50;
 
 function precarga ()
 {
@@ -38,14 +42,26 @@ function precarga ()
 	this.load.image('straw', 'straw_bg.png');
 }
 
-let x_huevo;
-let eleccion;
-let huevin;
-let y_huevo = 50;
+let huevo_dir = 1.5;
 
-function random(){
-x_huevo = Math.floor((Math.random() * 400) + 200);
-eleccion = Math.floor((Math.random() * 3) + 1);
+function crea ()
+{
+	random(huevin);
+	background = this.add.image(80, 0, 'background');
+	background.setScale(2);
+	straw = this.add.image(90, 200, 'straw');
+	straw.setScale(0.5, 0.4);
+	straw.angle = 90;
+
+	huevera_b = this.add.image(80, 100, 'huevera_b');
+	huevera_b.setScale(.5);
+	huevera_m = this.add.image(80, 200, 'huevera_m');
+	huevera_m.setScale(.5);
+	huevera_d = this.add.image(80, 300, 'huevera_d');
+	huevera_d.setScale(.5);
+	
+	x_huevo = Math.floor((Math.random() * 400) + 200);
+	eleccion = Math.floor((Math.random() * 3) + 1);
 
 	if(eleccion == 1){
 		huevin = this.add.image(x_huevo, y_huevo, 'huevo_b');
@@ -56,28 +72,6 @@ eleccion = Math.floor((Math.random() * 3) + 1);
 	if(eleccion == 3){
 		huevin = this.add.image(x_huevo, y_huevo, 'huevo_d');
 	}
-}
-
-let huevo_dir = 1.5;
-
-function crea ()
-{
-	random(huevin);
-	background = this.add.image(80, 0, 'background');
-	background.setScale(2);
-
-	straw = this.add.image(90, 200, 'straw');
-	straw.setScale(0.5, 0.4);
-	straw.angle = 90;
-
-	huevera_b = this.add.image(80, 100, 'huevera_b');
-	huevera_b.setScale(.5);
-
-	huevera_m = this.add.image(80, 200, 'huevera_m');
-	huevera_m.setScale(.5);
-	
-	huevera_d = this.add.image(80, 300, 'huevera_d');
-	huevera_d.setScale(.5);
 	
 	huevin = this.add.image(x_huevo, y_huevo, 'huevin');
 }
@@ -85,12 +79,19 @@ function crea ()
 function actualiza ()
 {
 huevin.y += huevo_dir;
-
-if(huevin.y >= 400){
-huevin.y = y_huevo;
-huevin.x = x_huevo;
-random();
-}
+let nueva = Math.floor((Math.random() * 3) + 1);
+	if(huevin.y >= 400){
+	huevin.y = y_huevo;
+	huevin.x = Math.floor((Math.random() * 400) + 200);
+	if(nueva == 1)
+	huevin.setTexture('huevo_b');
+	}
+	if(nueva == 2)
+	huevin.setTexture('huevo_m');
+	}
+	if(nueva == 3)
+	huevin.setTexture('huevo_d');
+	}
 }
 		</script>
 	</head>
