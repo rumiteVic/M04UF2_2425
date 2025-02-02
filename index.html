@@ -71,19 +71,18 @@ function crea ()
 	if(eleccion == 3){
 		huevin = this.add.image(x_huevo, y_huevo, 'huevo_d');
 	}
-	huevin.setScale(.5);
+	huevin.setScale(1.1);
 
 	huevin.setInteractive();
 
 	huevin.on('pointerdown', (pointer) => {
-	console.log('Huevo Blanco');
-		if(huevin.setTexture('huevo_b')) {
+		if(eleccion == 1) {
 			console.log('Huevo Blanco');
 		}
-		if(huevin.setTexture('huevo_m')){
+		if(eleccion == 2){
 			console.log('Huevo Marron');
 		}
-		if(huevin.setTexture('huevo_d')){
+		if(eleccion == 3){
 			console.log('Huevo Dorado');
 		}
 
