@@ -29,6 +29,7 @@ let x_huevo;
 let eleccion;
 let huevin;
 let y_huevo = 50;
+let nueva;
 
 function precarga ()
 {
@@ -43,6 +44,7 @@ function precarga ()
 }
 
 let huevo_dir = 1.5;
+let nueva1;
 
 function crea ()
 {
@@ -64,25 +66,28 @@ function crea ()
 
 	if(eleccion == 1){
 		huevin = this.add.image(x_huevo, y_huevo, 'huevo_b');
-	}
+	nueva1 = eleccion;
+}
 	if(eleccion == 2){
 		huevin = this.add.image(x_huevo, y_huevo, 'huevo_m');
-	}
+		nueva1 = eleccion;	
+}
 	if(eleccion == 3){
 		huevin = this.add.image(x_huevo, y_huevo, 'huevo_d');
-	}
+		nueva1 = eleccion;	
+}
 	huevin.setScale(1.1);
 
 	huevin.setInteractive();
 
 	huevin.on('pointerdown', (pointer) => {
-		if(eleccion == 1) {
+		if(nueva1 == 1) {
 			console.log('Huevo Blanco');
 		}
-		if(eleccion == 2){
+		if(nueva1 == 2){
 			console.log('Huevo Marron');
 		}
-		if(eleccion == 3){
+		if(nueva1 == 3){
 			console.log('Huevo Dorado');
 		}
 
@@ -92,19 +97,22 @@ function crea ()
 function actualiza ()
 {
 huevin.y += huevo_dir;
-let nueva = Math.floor((Math.random() * 3) + 1);
+nueva = Math.floor((Math.random() * 3) + 1);
 	if(huevin.y >= 400){
 	huevin.y = y_huevo;
 	huevin.x = Math.floor((Math.random() * 400) + 200);	
 	if(nueva == 1){
 	huevin.setTexture('huevo_b');
-	}
+	nueva1 = nueva;	
+}
 	if(nueva == 2){
 	huevin.setTexture('huevo_m');
-	}
+	nueva1 = nueva;	
+}
 	if(nueva == 3){
 	huevin.setTexture('huevo_d');
-	}
+	nueva1 = nueva;	
+}
 }
 }
 		</script>
