@@ -58,6 +58,7 @@ function crea ()
 	
 	this.randomGenerator();
 }
+
 function randomGenerator (){
 	
 	x_huevo = Math.floor((Math.random() * 400) + 200);
