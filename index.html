@@ -48,15 +48,14 @@ x_huevo = Math.floor((Math.random() * 400) + 200);
 eleccion = Math.floor((Math.random() * 3) + 1);
 
 	if(eleccion == 1){
-		huevin = 'huevo_b';
+		huevin = this.add.image(x_huevo, y_huevo, 'huevo_b');
 	}
 	if(eleccion == 2){
-		huevin = 'huevo_m';
+		huevin = this.add.image(x_huevo, y_huevo, 'huevo_m');
 	}
 	if(eleccion == 3){
-		huevin = 'huevo_d';
+		huevin = this.add.image(x_huevo, y_huevo, 'huevo_d');
 	}
-	huevin = this(x_huevo, y_huevo, huevin);
 }
 
 let huevo_dir = 1.5;
