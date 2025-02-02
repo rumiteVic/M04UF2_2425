@@ -41,6 +41,7 @@ function precarga ()
 let x_huevo;
 let eleccion;
 let huevin;
+let y_huevo = 50;
 
 function random(){
 x_huevo = Math.floor((Math.random() * 400) + 200);
@@ -55,6 +56,7 @@ eleccion = Math.floor((Math.random() * 3) + 1);
 	if(eleccion == 3){
 		huevin = 'huevo_d';
 	}
+	huevin = this(x_huevo, huevin.y, huevin);
 }
 
 let huevo_dir = 1.5;
@@ -78,7 +80,7 @@ function crea ()
 	huevera_d = this.add.image(80, 300, 'huevera_d');
 	huevera_d.setScale(.5);
 	
-	huevin = this.add.image(x_huevo, 0, huevin);
+	huevin = this.add.image(x_huevo, y_huevo, 'huevin');
 }
 
 function actualiza ()
@@ -86,7 +88,7 @@ function actualiza ()
 huevin.y += huevo_dir;
 
 if(huevin.y >= 400){
-huevin.y = 50;
+huevin.y = y_huevo;
 huevin.x = x_huevo;
 random();
 }
