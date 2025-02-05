@@ -1,4 +1,4 @@
-let canvas_w = 800;
+let canvas_w = 800
 let canvas_h = 450;
 let config = {
  width: canvas_w,
@@ -23,6 +23,8 @@ let huevin;
 let y_huevo = 50;
 let nueva;
 
+let countdown_text;
+
 function precarga ()
 {
 	this.load.image('huevera_b', 'huevera_b.png');
@@ -37,6 +39,8 @@ function precarga ()
 
 let huevo_dir = 1.5;
 let nueva1;
+
+
 
 function crea ()
 {
@@ -84,6 +88,8 @@ function crea ()
 		}
 
 	});
+
+	countdown_text = this.add.text(canvas_w/2 + canvas_w/4, 64, "60", {"fontSize": 32}); 
 }
 
 function actualiza ()
@@ -107,3 +113,29 @@ nueva = Math.floor((Math.random() * 3) + 1);
 }
 }
 }
+
+let num=60;
+
+let intervalo_contador;
+
+setTimeout(function () {
+console.log("hola")
+}, 3000);
+
+
+function salta ()
+{
+	console.log("boing");
+}
+
+setTimeout(salta, 5000);
+
+countdown_interval = setInterval(function(){
+num--;
+countdown_text.text = num;
+if (num == 0){
+	console.log("Game Over");
+	clearInterval(countdown_interval);
+
+}
+}, 1000);
