@@ -23,6 +23,13 @@ let huevin;
 let y_huevo = 50;
 let nueva;
 
+let music = {
+background: null,
+game_over: null
+};
+
+
+
 function precarga ()
 {
 	this.load.image('huevera_b', 'huevera_b.png');
@@ -33,6 +40,8 @@ function precarga ()
 	this.load.image('huevera_d', 'huevera_d.png');
 	this.load.image('background', 'grass_bg.png');
 	this.load.image('straw', 'straw_bg.png');
+
+	this.load.
 }
 
 let huevo_dir = 1.5;
@@ -84,6 +93,7 @@ function crea ()
 		}
 
 	});
+	music.background = this.sound.add('background_music', {loop :true });
 }
 
 function actualiza ()
