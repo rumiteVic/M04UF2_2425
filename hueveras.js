@@ -21,6 +21,7 @@ let x_huevo;
 let eleccion;
 let y_huevo = 50;;
 let countdown_text;
+let musicFondo;
 
 function precarga ()
 {
@@ -32,6 +33,7 @@ function precarga ()
 	this.load.image('huevera_d', 'huevera_d.png');
 	this.load.image('background', 'grass_bg.png');
 	this.load.image('straw', 'straw_bg.png');
+	this.load.audio('musicFondo', 'Dark_Loop.ogg');
 }
 
 let huevo_dir = 1.5;
@@ -45,6 +47,8 @@ function crea ()
 	straw.setScale(0.5, 0.4);
 	straw.angle = 90;
 
+	this.musicFondo = this.sound.add('musicFondo');
+
 	huevera_b = this.add.image(80, 100, 'huevera_b');
 	huevera_b.setScale(.5);
 	huevera_m = this.add.image(80, 200, 'huevera_m');
@@ -57,11 +61,6 @@ function crea ()
 	
 	random.call(this);
 }
-countdown1_interval = setInterval(function(){
-
-random.call(this);
-
-},2000);
 
 function random (huevin)
 {	
@@ -106,7 +105,7 @@ function actualiza ()
 //	}
 }
 
-let num=60;
+let num = 60;
 
 let intervalo_contador;
 
@@ -125,9 +124,8 @@ setTimeout(salta, 5000);
 countdown_interval = setInterval(function(){
 num--;
 countdown_text.text = num;
-if (num == 0){
+if (num <= 0){
 	console.log("Game Over");
 	clearInterval(countdown_interval);
 }
-random.call(this);
 }, 1000);
