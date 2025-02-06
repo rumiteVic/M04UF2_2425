@@ -17,11 +17,9 @@ let huevo_b, huevo_m, huevo_d;
 let background;
 let straw;
 
-let huevin;	
 let x_huevo;
 let eleccion;
-let y_huevo = 50;
-let nueva;
+let y_huevo = 50;;
 let countdown_text;
 
 function precarga ()
@@ -60,7 +58,7 @@ function crea ()
 	random.call(this);
 }
 
-function random ()
+function random (huevin)
 {	
 	x_huevo = Math.floor((Math.random() * 400) + 200);
 	eleccion = Math.floor((Math.random() * 3) + 1);
@@ -97,14 +95,10 @@ function random ()
 function actualiza ()
 {
 
-if(huevin){
-huevin.y += huevo_dir;
-nueva = Math.floor((Math.random() * 3) + 1);
-	if(huevin.y >= 400){
-	huevin.destroy();
-	random.call(this);	
-	}
-}
+//	if(huevin >= 400){
+//	huevin.destroy();
+//	random(huevin);	
+//	}
 }
 
 let num=60;
@@ -125,10 +119,10 @@ setTimeout(salta, 5000);
 
 countdown_interval = setInterval(function(){
 num--;
-random.call(this);
 countdown_text.text = num;
 if (num == 0){
 	console.log("Game Over");
 	clearInterval(countdown_interval);
 }
+random.call(this);
 }, 1000);
