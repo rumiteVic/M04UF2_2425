@@ -16,7 +16,8 @@ let huevera_b, huevera_m, huevera_d;
 let huevo_b, huevo_m, huevo_d;
 let background;
 let straw;
-	
+
+let huevin;	
 let x_huevo;
 let eleccion;
 let y_huevo = 50;
@@ -56,27 +57,26 @@ function crea ()
 	
 	countdown_text = this.add.text(canvas_w/2 + canvas_w/4, 64, "60", {"fontSize": 32}); 
 	
-	this.randomGenerator();
+	random.call(this);
 }
 
-function randomGenerator (){
-	
+function random ()
+{	
 	x_huevo = Math.floor((Math.random() * 400) + 200);
 	eleccion = Math.floor((Math.random() * 3) + 1);
-	let huevin;
-
+	
 	if(eleccion == 1){
 		huevin = this.add.image(x_huevo, y_huevo, 'huevo_b');
 	nueva1 = eleccion;
-}
+	}
 	if(eleccion == 2){
 		huevin = this.add.image(x_huevo, y_huevo, 'huevo_m');
 		nueva1 = eleccion;	
-}
+	}
 	if(eleccion == 3){
 		huevin = this.add.image(x_huevo, y_huevo, 'huevo_d');
 		nueva1 = eleccion;	
-}
+	}
 	huevin.setScale(1.1);
 
 	huevin.setInteractive();
@@ -96,11 +96,14 @@ function randomGenerator (){
 
 function actualiza ()
 {
+
+if(huevin){
 huevin.y += huevo_dir;
 nueva = Math.floor((Math.random() * 3) + 1);
 	if(huevin.y >= 400){
 	huevin.destroy();
-	randomGenerator();	
+	random.call(this);	
+	}
 }
 }
 
@@ -127,4 +130,5 @@ if (num == 0){
 	console.log("Game Over");
 	clearInterval(countdown_interval);
 }
+random.call(this);
 }, 1000);
