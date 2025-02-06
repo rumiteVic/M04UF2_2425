@@ -59,15 +59,6 @@ function crea ()
 	
 	random.call(this);
 }
-countdown_interval = setInterval(function(){
-num--;
-countdown_text.text = num;
-if (num == 0){
-	console.log("Game Over");
-	clearInterval(countdown_interval);
-}
-random.call(this);
-}, 1000);
 
 function random ()
 {	
@@ -131,3 +122,13 @@ function salta ()
 }
 
 setTimeout(salta, 5000);
+
+countdown_interval = setInterval(function(){
+num--;
+random.call(this);
+countdown_text.text = num;
+if (num == 0){
+	console.log("Game Over");
+	clearInterval(countdown_interval);
+}
+}, 1000);
