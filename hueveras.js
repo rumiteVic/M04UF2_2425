@@ -57,6 +57,11 @@ function crea ()
 	
 	random.call(this);
 }
+countdown1_interval = setInterval(function(){
+
+random.call(this);
+
+},2000);
 
 function random (huevin)
 {	
@@ -126,10 +131,3 @@ if (num == 0){
 }
 random.call(this);
 }, 1000);
-
-
-countdown1_interval = setInterval(function(){
-
-random.call(this);
-
-},2000);
