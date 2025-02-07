@@ -28,7 +28,11 @@ background: null,
 game_over: null
 };
 
-
+let fx = {
+	mouseclick: null,
+	bad: null,
+	good: null
+};
 
 function precarga ()
 {
@@ -40,12 +44,16 @@ function precarga ()
 	this.load.image('huevera_d', 'huevera_d.png');
 	this.load.image('background', 'grass_bg.png');
 	this.load.image('straw', 'straw_bg.png');
-
-	this.load.
+	
+	this.load.audio('mouseclick', 'Dark_Loop.ogg');
+	this.load.audio('backgound_music', 'Dark_Loop.ogg');
 }
 
 let huevo_dir = 1.5;
 let nueva1;
+let countdown = 60;
+
+let countdown_text;
 
 function crea ()
 {
@@ -93,11 +101,36 @@ function crea ()
 		}
 
 	});
-	music.background = this.sound.add('background_music', {loop :true });
+	countdown_text = this.add.text(canvas_w/2 + canvas_w/4, 64, "60", {"fontSize": 32});
+
+
+	music.background = this.sound.add('background_music', {
+	loop :true,
+	volume: 0.5
+	});
+
+	music.background.play();
+
+	music.game_over = this.sound.add('game_over_music', {
+	loop: false,
+	volume: 0.5
+	});
+
+	fx.mouseclick = this.sound.add('mouseclick_fx');
+
 }
 
 function actualiza ()
 {
+
+if (countdown == 10){
+	music.background.rate = 1.5;
+}
+else if (countdown <= 0){
+	music.background.stop();
+	music.game_over.play();
+}
+
 huevin.y += huevo_dir;
 nueva = Math.floor((Math.random() * 3) + 1);
 	if(huevin.y >= 400){
@@ -117,3 +150,16 @@ nueva = Math.floor((Math.random() * 3) + 1);
 }
 }
 }
+let intervalo_contador;
+
+countdown_interval = setInterval(function(){
+countdown--;
+countdown_text.text = countdown;
+if(countdown <= 0){
+	console.log("Game Over");
+
+
+	clearInterval(countdown_interval);
+
+}
+}, 1000);
