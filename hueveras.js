@@ -16,7 +16,13 @@ let huevera_b, huevera_m, huevera_d;
 let huevo_b, huevo_m, huevo_d;
 let background;
 let straw;
-	
+
+let field_center = canvas_w/2 + canvas_w/8;
+
+let huevos = []
+let huevos_1;
+
+
 let x_huevo;
 let eleccion;
 let huevin;
@@ -37,7 +43,7 @@ let fx = {
 function precarga ()
 {
 	this.load.image('huevera_b', 'huevera_b.png');
-	this.load.image('huevo_b', 'huevo_b.png');
+	this.load.image('huevin', 'huevo_b.png');
 	this.load.image('huevera_m', 'huevera_m.png');
 	this.load.image('huevo_m', 'huevo_m.png');
 	this.load.image('huevo_d', 'huevo_d.png');
@@ -55,6 +61,12 @@ let countdown = 60;
 
 let countdown_text;
 
+let huevos_interval;
+
+let huevos_interval_time = 2000;
+
+let huevo_current = 0;
+
 function crea ()
 {
 	background = this.add.image(80, 0, 'background');
@@ -70,37 +82,43 @@ function crea ()
 	huevera_d = this.add.image(80, 300, 'huevera_d');
 	huevera_d.setScale(.5);
 	
-	x_huevo = Math.floor((Math.random() * 400) + 200);
-	eleccion = Math.floor((Math.random() * 3) + 1);
+	for(let i = 0; i < 10; i++){
 
-	if(eleccion == 1){
-		huevin = this.add.image(x_huevo, y_huevo, 'huevo_b');
-	nueva1 = eleccion;
-}
-	if(eleccion == 2){
-		huevin = this.add.image(x_huevo, y_huevo, 'huevo_m');
-		nueva1 = eleccion;	
-}
-	if(eleccion == 3){
-		huevin = this.add.image(x_huevo, y_huevo, 'huevo_d');
-		nueva1 = eleccion;	
-}
-	huevin.setScale(1.1);
+	let huevo_tmp = this.add.image(400, 256, 'huevin');
 
-	huevin.setInteractive();
+	let color = blanco;
 
-	huevin.on('pointerdown', (pointer) => {
-		if(nueva1 == 1) {
-			console.log('Huevo Blanco');
-		}
-		if(nueva1 == 2){
-			console.log('Huevo Marron');
-		}
-		if(nueva1 == 3){
-			console.log('Huevo Dorado');
-		}
+	let random_num = Phaser.Math.Between(1, 100);
+	let huevo_type = "b";
+
+	if (random_num % 5 == 0){
+	color = marron;
+	huevo_type = "m";
+	}
+	else if (random_num % 13 == 0){
+		color = dorado;
+		huevo_type = "d";
+	}
+
+	huevo_tmp.setTint(color);
+	huevo_tmp.huevo_type = huevo_type;
+
+	huevo_tmp.setInteractive({ draggable:true })
+	huevo_tmp.on('pointerdown', function (){
+	let huevo_color = "blanco";
+	if (this.huevo_type == "m")
+	{
+	huevo_color = "marrón";
+	}
+	else if (this.huevo_type == "d")
+	{
+	huevo_color = "dorado";
+	}
+	console.log("Huevo " +huevo_color);
 
 	});
+
+	}
 	countdown_text = this.add.text(canvas_w/2 + canvas_w/4, 64, "60", {"fontSize": 32});
 
 
@@ -131,25 +149,10 @@ else if (countdown <= 0){
 	music.game_over.play();
 }
 
-huevin.y += huevo_dir;
-nueva = Math.floor((Math.random() * 3) + 1);
-	if(huevin.y >= 400){
-	huevin.y = y_huevo;
-	huevin.x = Math.floor((Math.random() * 400) + 200);	
-	if(nueva == 1){
-	huevin.setTexture('huevo_b');
-	nueva1 = nueva;	
+	
 }
-	if(nueva == 2){
-	huevin.setTexture('huevo_m');
-	nueva1 = nueva;	
-}
-	if(nueva == 3){
-	huevin.setTexture('huevo_d');
-	nueva1 = nueva;	
-}
-}
-}
+
+
 let intervalo_contador;
 
 countdown_interval = setInterval(function(){
@@ -163,3 +166,15 @@ if(countdown <= 0){
 
 }
 }, 1000);
+
+huevos_interval = setInterval(function(){
+
+	huevo_current++;
+	if(huevo_current >= huevos.length){
+		console.log("Se acabaron los huevos");
+		clearInterval(huevos_interval);
+		return;
+	}
+
+}), huevos_internal_time;
+
