@@ -1,4 +1,4 @@
-let canvas_w = 800
+let canvas_w = 800;
 let canvas_h = 450;
 let config = {
  width: canvas_w,
@@ -16,12 +16,12 @@ let huevera_b, huevera_m, huevera_d;
 let huevo_b, huevo_m, huevo_d;
 let background;
 let straw;
-
+	
 let x_huevo;
 let eleccion;
-let y_huevo = 50;;
-let countdown_text;
-let musicFondo;
+let huevin;
+let y_huevo = 50;
+let nueva;
 
 function precarga ()
 {
@@ -33,7 +33,6 @@ function precarga ()
 	this.load.image('huevera_d', 'huevera_d.png');
 	this.load.image('background', 'grass_bg.png');
 	this.load.image('straw', 'straw_bg.png');
-	this.load.audio('musicFondo', 'Dark_Loop.ogg');
 }
 
 let huevo_dir = 1.5;
@@ -47,8 +46,6 @@ function crea ()
 	straw.setScale(0.5, 0.4);
 	straw.angle = 90;
 
-	this.musicFondo = this.sound.add('musicFondo');
-
 	huevera_b = this.add.image(80, 100, 'huevera_b');
 	huevera_b.setScale(.5);
 	huevera_m = this.add.image(80, 200, 'huevera_m');
@@ -56,29 +53,21 @@ function crea ()
 	huevera_d = this.add.image(80, 300, 'huevera_d');
 	huevera_d.setScale(.5);
 	
-	
-	countdown_text = this.add.text(canvas_w/2 + canvas_w/4, 64, "60", {"fontSize": 32}); 
-	
-	random.call(this);
-}
-
-function random (huevin)
-{	
 	x_huevo = Math.floor((Math.random() * 400) + 200);
 	eleccion = Math.floor((Math.random() * 3) + 1);
-	
+
 	if(eleccion == 1){
 		huevin = this.add.image(x_huevo, y_huevo, 'huevo_b');
 	nueva1 = eleccion;
-	}
+}
 	if(eleccion == 2){
 		huevin = this.add.image(x_huevo, y_huevo, 'huevo_m');
 		nueva1 = eleccion;	
-	}
+}
 	if(eleccion == 3){
 		huevin = this.add.image(x_huevo, y_huevo, 'huevo_d');
 		nueva1 = eleccion;	
-	}
+}
 	huevin.setScale(1.1);
 
 	huevin.setInteractive();
@@ -93,39 +82,28 @@ function random (huevin)
 		if(nueva1 == 3){
 			console.log('Huevo Dorado');
 		}
+
 	});
 }
 
 function actualiza ()
 {
-
-//	if(huevin >= 400){
-//	huevin.destroy();
-//	random(huevin);	
-//	}
+huevin.y += huevo_dir;
+nueva = Math.floor((Math.random() * 3) + 1);
+	if(huevin.y >= 400){
+	huevin.y = y_huevo;
+	huevin.x = Math.floor((Math.random() * 400) + 200);	
+	if(nueva == 1){
+	huevin.setTexture('huevo_b');
+	nueva1 = nueva;	
 }
-
-let num = 60;
-
-let intervalo_contador;
-
-setTimeout(function () {
-console.log("hola")
-}, 3000);
-
-
-function salta ()
-{
-	console.log("boing");
+	if(nueva == 2){
+	huevin.setTexture('huevo_m');
+	nueva1 = nueva;	
 }
-
-setTimeout(salta, 5000);
-
-countdown_interval = setInterval(function(){
-num--;
-countdown_text.text = num;
-if (num <= 0){
-	console.log("Game Over");
-	clearInterval(countdown_interval);
+	if(nueva == 3){
+	huevin.setTexture('huevo_d');
+	nueva1 = nueva;	
 }
-}, 1000);
+}
+}
