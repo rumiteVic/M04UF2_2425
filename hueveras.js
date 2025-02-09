@@ -75,6 +75,7 @@ function precarga ()
 
 	this.load.audio('crack_fx', 'audio/poof2.mp3');
 	this.load.audio('mouseclick_fx', 'audio/mouseclick.mp3');
+	this.load.audio('nice_fx', 'audio/jingle.mp3');
 }
 
 function crea ()
@@ -185,39 +186,42 @@ function crea ()
 		if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_b.getBounds(), object.getBounds())){
 			if (object.huevo_type == "b"){
 				countdown += 5;
-				
+				fx.good.play();
 				console.log("Huevo dentro de huevera!!!");
 			}
 			else{
 				countdown -= 5;
 				
 				console.log("Huevo dentro de huevera equivocada!!!");
+				fx.bad.play();
 			}
 			countdown_text.text = countdown;
 		}
 		else if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_m.getBounds(), object.getBounds())){
 			if (object.huevo_type == "m"){
 				countdown += 5;
-				
+				fx.good.play();
 				console.log("Huevo dentro de huevera!!!");
 			}
 			else{
 				countdown -= 5;
 				
 				console.log("Huevo dentro de huevera equivocada!!!");
+				fx.bad.play();
 			}
 			countdown_text.text = countdown;
 		}
 		else if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_d.getBounds(), object.getBounds())){
 			if (object.huevo_type == "d"){
 				countdown += 5;
-				
+				fx.good.play();
 				console.log("Huevo dentro de huevera!!!");
 			}
 			else{
 				countdown -= 5;
 				
 				console.log("Huevo dentro de huevera equivocada!!!");
+				fx.bad.play();
 			}
 			countdown_text.text = countdown;
 		}
@@ -238,6 +242,8 @@ function crea ()
 	music.game_over = this.sound.add('game_over_music');
 
 	fx.mouseclick = this.sound.add('mouseclick_fx');
+	fx.bad = this.sound.add('crack_fx');
+	fx.good = this.sound.add('nice_fx');
 
 
 }
