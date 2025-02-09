@@ -70,9 +70,10 @@ function precarga ()
 	this.load.image('huevo', 'imgs/huevo.png');
 
 	this.load.audio('background_music', 'audio/song21.mp3');
-	this.load.audio('game_over_music', 'audio/GameOver.mp3');
-	this.load.audio('game_over_music', 'audio/GameOver.mp3');
+	this.load.audio('game_over_music', 'audio/piano_loop.mp3');
+	this.load.audio('game_over_music', 'audio/piano_loop.mp3');
 
+	this.load.audio('crack_fx', 'audio/poof2.mp3');
 	this.load.audio('mouseclick_fx', 'audio/mouseclick.mp3');
 }
 
