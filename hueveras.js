@@ -13,9 +13,6 @@ let config = {
 
 let game = new Phaser.Game(config);
 
-//let rect;
-//let rect_dir = 1;
-
 let field_center = canvas_w/2 + canvas_w/8;
 
 let canvas_bg, eggcups_bg;
@@ -47,9 +44,6 @@ let huevos_interval_time = 3000;
 let huevo_current = 0;
 
 
-
-
-
 let music = {
 	background: null,
 	game_over: null
@@ -73,7 +67,7 @@ function precarga ()
 	this.load.audio('game_over_music', 'audio/piano_loop.mp3');
 	this.load.audio('game_over_music', 'audio/piano_loop.mp3');
 
-	this.load.audio('crack_fx', 'audio/poof2.mp3');
+	this.load.audio('crack_fx', 'audio/poof_2.mp3');
 	this.load.audio('mouseclick_fx', 'audio/mouseclick.mp3');
 	this.load.audio('nice_fx', 'audio/jingle.mp3');
 }
@@ -266,7 +260,6 @@ function actualiza ()
 			}
 		}
 	}
-
 }
 
 
@@ -302,6 +295,5 @@ function next_huevo ()
 
 	huevos_interval = setTimeout(next_huevo, huevos_interval_time);
 }
-
 
 huevos_interval = setTimeout(next_huevo, huevos_interval_time);
