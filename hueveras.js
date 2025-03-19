@@ -198,6 +198,7 @@ function crea ()
 				fx.bad.play();
 			}
 			countdown_text.text = countdown;
+			puntuacion_text.text = puntuacion;
 		}
 		else if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_m.getBounds(), object.getBounds())){
 			if (object.huevo_type == "m"){
@@ -217,6 +218,7 @@ function crea ()
 				fx.bad.play();
 			}
 			countdown_text.text = countdown;
+			puntuacion_text.text = puntuacion;
 		}
 		else if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_d.getBounds(), object.getBounds())){
 			if (object.huevo_type == "d"){
@@ -236,6 +238,7 @@ function crea ()
 				fx.bad.play();
 			}
 			countdown_text.text = countdown;
+			puntuacion_text.text = puntuacion;
 		}
 		else {
 			object.falling = true;
@@ -294,7 +297,7 @@ countdown_interval = setInterval(function(){
 	countdown--;
 
 	countdown_text.text = countdown;
-
+	puntuacion_text.text = puntuacion;
 	if (countdown <= 0){
 		console.log("Game Over");
 		music.background.stop();
