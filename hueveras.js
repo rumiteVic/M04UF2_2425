@@ -261,6 +261,9 @@ function actualiza ()
 	if (countdown == 10){
 		music.background.rate = 1.25;
 	}
+	if (countdown > 10){
+		music.background.rate = 1;
+	}
 
 
 	for (let i = 0; i < huevos.length; i++){
@@ -287,8 +290,8 @@ countdown_interval = setInterval(function(){
 		music.game_over.play();
 		game_over_text.x = canvas_w/2;
 		game_over_text.y = canvas_h/2;
-		puntuacion_text.x = canvas_w/2;
-		puntuacion_text.y = canvas_h/2 + 30;
+		puntuacion_text.x = canvas_w/2 + 100;
+		puntuacion_text.y = canvas_h/2 + 60;
 		clearInterval(countdown_interval);
 		for(let i = 0; i < huevos.length; i++){
 			huevos[i].falling = false;
@@ -306,6 +309,13 @@ function next_huevo ()
 		console.log("Se acabaron los huevos");
 		game_over_text.x = canvas_w/2;
 		game_over_text.y = canvas_h/2;
+		puntuacion_text.x = canvas_w/2 + 100;
+		puntuacion_text.y = canvas_h/2 + 60;
+		for(let i = 0; i < huevos.length; i++){
+			huevos[i].falling = false;
+			huevos[i].disableInteractive();
+			huevos[i].removeInteractive();
+		}
 		return;
 	}
 
