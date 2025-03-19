@@ -182,16 +182,16 @@ function crea ()
 
 		if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_b.getBounds(), object.getBounds())){
 			if (object.huevo_type == "b"){
-				countdown += 5;
-				puntuacion += 5;
+				countdown += 2;
+				puntuacion += 1;
 				object.disableInteractive();
 				object.removeInteractive();
 				fx.good.play();
 				console.log("Huevo dentro de huevera!!!");
 			}
 			else{
-				countdown -= 5;
-				puntuacion -= 5;
+				countdown -= 2;
+				puntuacion -= 1;
 				object.disableInteractive();
 				object.removeInteractive();
 				console.log("Huevo dentro de huevera equivocada!!!");
@@ -202,16 +202,16 @@ function crea ()
 		}
 		else if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_m.getBounds(), object.getBounds())){
 			if (object.huevo_type == "m"){
-				countdown += 5;
-				puntuacion += 5;
+				countdown += 3;
+				puntuacion += 2;
 				object.disableInteractive();
 				object.removeInteractive();
 				fx.good.play();
 				console.log("Huevo dentro de huevera!!!");
 			}
 			else{
-				countdown -= 5;
-				puntuacion -= 5;
+				countdown -= 3;
+				puntuacion -= 2;
 				object.disableInteractive();
 				object.removeInteractive();
 				console.log("Huevo dentro de huevera equivocada!!!");
