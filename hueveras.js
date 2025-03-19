@@ -44,6 +44,8 @@ let huevos_interval_time = 3000;
 
 let huevo_current = 0;
 
+let puntuacion = 0;
+let puntuacion_text;
 
 let music = {
 	background: null,
@@ -181,12 +183,13 @@ function crea ()
 		if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_b.getBounds(), object.getBounds())){
 			if (object.huevo_type == "b"){
 				countdown += 5;
+				puntuacion += 5;
 				fx.good.play();
 				console.log("Huevo dentro de huevera!!!");
 			}
 			else{
 				countdown -= 5;
-				
+				puntuacion -= 5;
 				console.log("Huevo dentro de huevera equivocada!!!");
 				fx.bad.play();
 			}
@@ -195,12 +198,13 @@ function crea ()
 		else if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_m.getBounds(), object.getBounds())){
 			if (object.huevo_type == "m"){
 				countdown += 5;
+				puntuacion += 5;
 				fx.good.play();
 				console.log("Huevo dentro de huevera!!!");
 			}
 			else{
 				countdown -= 5;
-				
+				puntuacion -= 5;
 				console.log("Huevo dentro de huevera equivocada!!!");
 				fx.bad.play();
 			}
@@ -209,12 +213,13 @@ function crea ()
 		else if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_d.getBounds(), object.getBounds())){
 			if (object.huevo_type == "d"){
 				countdown += 5;
+				puntuacion += 5;
 				fx.good.play();
 				console.log("Huevo dentro de huevera!!!");
 			}
 			else{
 				countdown -= 5;
-				
+				puntuacion -= 5;
 				console.log("Huevo dentro de huevera equivocada!!!");
 				fx.bad.play();
 			}
@@ -222,6 +227,8 @@ function crea ()
 		}
 		else {
 			object.falling = true;
+			countdown -= 5;
+			puntuacion -= 5;
 		}
 	});
 
@@ -230,6 +237,8 @@ function crea ()
 		countdown, {"fontSize":	48, "fontStyle": "bold"} );
 	game_over_text = this.add.text(10000, 10000,
 		'Game Over', {"fontSize": 48, "fontStyle": "bold"} );
+	puntuacion_text = this.add.text(10000, 10000,
+		puntuacion, {"fontSize": 48, "fontStyle": "bold"} );
 	music.background = this.sound.add('background_music', {
 			loop: true,
 			volume: 0.5
@@ -278,7 +287,14 @@ countdown_interval = setInterval(function(){
 		music.game_over.play();
 		game_over_text.x = canvas_w/2;
 		game_over_text.y = canvas_h/2;
+		puntuacion_text.x = canvas_w/2;
+		puntuacion_text.y = canvas_h/2 + 30;
 		clearInterval(countdown_interval);
+		for(let i = 0; i < huevos.length; i++){
+			huevos[i].falling = false;
+			huevos[i].disableInteractive();
+			huevos[i].removeInteractive();
+		}
 	}
 }, 1000);
 
