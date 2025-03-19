@@ -220,6 +220,9 @@ function crea ()
 			}
 			countdown_text.text = countdown;
 		}
+		else {
+			object.falling = true;
+		}
 	});
 
 	
@@ -273,7 +276,8 @@ countdown_interval = setInterval(function(){
 		console.log("Game Over");
 		music.background.stop();
 		music.game_over.play();
-
+		game_over_text.x = canvas_w/2;
+		game_over_text.y = canvas_h/2;
 		clearInterval(countdown_interval);
 	}
 }, 1000);
