@@ -184,12 +184,16 @@ function crea ()
 			if (object.huevo_type == "b"){
 				countdown += 5;
 				puntuacion += 5;
+				object.disableInteractive();
+				object.removeInteractive();
 				fx.good.play();
 				console.log("Huevo dentro de huevera!!!");
 			}
 			else{
 				countdown -= 5;
 				puntuacion -= 5;
+				object.disableInteractive();
+				object.removeInteractive();
 				console.log("Huevo dentro de huevera equivocada!!!");
 				fx.bad.play();
 			}
@@ -199,12 +203,16 @@ function crea ()
 			if (object.huevo_type == "m"){
 				countdown += 5;
 				puntuacion += 5;
+				object.disableInteractive();
+				object.removeInteractive();
 				fx.good.play();
 				console.log("Huevo dentro de huevera!!!");
 			}
 			else{
 				countdown -= 5;
 				puntuacion -= 5;
+				object.disableInteractive();
+				object.removeInteractive();
 				console.log("Huevo dentro de huevera equivocada!!!");
 				fx.bad.play();
 			}
@@ -214,12 +222,16 @@ function crea ()
 			if (object.huevo_type == "d"){
 				countdown += 5;
 				puntuacion += 5;
+				object.disableInteractive();
+				object.removeInteractive();
 				fx.good.play();
 				console.log("Huevo dentro de huevera!!!");
 			}
 			else{
 				countdown -= 5;
 				puntuacion -= 5;
+				object.disableInteractive();
+				object.removeInteractive();
 				console.log("Huevo dentro de huevera equivocada!!!");
 				fx.bad.play();
 			}
@@ -228,7 +240,6 @@ function crea ()
 		else {
 			object.falling = true;
 			countdown -= 5;
-			puntuacion -= 5;
 		}
 	});
 
