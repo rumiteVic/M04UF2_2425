@@ -24,6 +24,7 @@ let huevera_x = 128;
 
 let huevo_b, huevo_m, huevo_d;
 
+let game_over_text;
 
 let huevo_shadow;
 
@@ -224,8 +225,8 @@ function crea ()
 	
 	countdown_text = this.add.text(field_center, 16,
 		countdown, {"fontSize":	48, "fontStyle": "bold"} );
-
-	
+	game_over_text = this.add.text(10000, 10000,
+		'Game Over', {"fontSize": 48, "fontStyle": "bold"} );
 	music.background = this.sound.add('background_music', {
 			loop: true,
 			volume: 0.5
@@ -283,7 +284,8 @@ function next_huevo ()
 	huevo_current++;
 	if (huevo_current >= huevos.length){
 		console.log("Se acabaron los huevos");
-
+		game_over_text.x = canvas_w/2;
+		game_over_text.y = canvas_h/2;
 		return;
 	}
 
